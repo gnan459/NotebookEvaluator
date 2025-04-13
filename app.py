@@ -125,12 +125,14 @@ if uploaded_notebook and uploaded_submission_csv and reference_csv_file and prob
         st.json(evaluation_results['prediction_evaluation'])
         st.write(f"**Prediction Score:** {evaluation_results['prediction_score']:.2f}%")
 
+        st.subheader("Evaluation Results (JSON):")
+        st.json(evaluation_results)
         json_output = json.dumps(evaluation_results, indent=4)
         st.download_button(
-            label="Download Evaluation Results (JSON)",
-            data=json_output,
-            file_name="evaluation_results.json",
-            mime="application/json",
+        label="Download Evaluation Results (JSON)",
+        data=json_output,
+        file_name="evaluation_results.json",
+        mime="application/json",
         )
 
     except Exception as e:
